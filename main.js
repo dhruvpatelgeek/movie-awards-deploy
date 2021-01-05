@@ -190,6 +190,7 @@ class MovieCardsComponent {
         this._freeapiservice = _freeapiservice;
         this.addToList = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.showDetailDes = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.flag = true;
     }
     _addToList(_item) {
         this.addToList.emit(_item);
@@ -211,7 +212,9 @@ class MovieCardsComponent {
         return true;
     }
     ngOnInit() {
-        this.refreshData("blade");
+        if (this.query == undefined)
+            this.query = "blade";
+        this.refreshData(this.query);
     }
     refreshData(input) {
         this.description = "Searching for \"" + input + "\" ";
